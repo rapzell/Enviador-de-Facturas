@@ -364,18 +364,7 @@ def run_gui():
             f_path = filedialog.askopenfilename(title="Seleccionar archivo Excel", filetypes=(("Archivos de Excel", "*.xlsx"), ("Todos los archivos", "*.*")))
             if f_path: excel_file_var.set(f_path); log_func_hilo(f"Archivo de mapeo seleccionado: {f_path}")
 
-        def buscar_facturas_numeradas():
-            remitente_var.set("limpiezasmaylinsl@gmail.com")
-            gmail_pass_var.set("lire faza liea aukc")
-            log_func_hilo("Credenciales de Gmail autocompletadas.")
-            carpeta = filedialog.askdirectory(title="Seleccionar carpeta de facturas")
-            if not carpeta: return log_func_hilo("Selección de carpeta cancelada.")
-            carpeta_var.set(carpeta)
-            log_func_hilo(f"Carpeta de facturas seleccionada: {carpeta}")
-            pdfs = [f for f in os.listdir(carpeta) if f.lower().endswith('.pdf')]
-            if not pdfs: return messagebox.showinfo("Información", "No se encontraron archivos PDF en la carpeta seleccionada.")
-            resumen = "Resumen de facturas encontradas:\n\n" + "\n".join(f"{i}. {f}" for i, f in enumerate(pdfs, 1))
-            messagebox.showinfo("Facturas encontradas", resumen)
+        # Eliminado: función de autocompletar demo con credenciales hardcodeadas
 
         # --- 3. Creación de la Interfaz Gráfica ---
         main_frame = tk.Frame(root, padx=10, pady=10); main_frame.pack(fill='both', expand=True)
@@ -392,7 +381,7 @@ def run_gui():
         tk.Button(main_frame, text="Buscar Excel", command=browse_excel_file).grid(row=3, column=2, padx=5, pady=2)
 
         button_frame = tk.Frame(main_frame); button_frame.grid(row=4, column=0, columnspan=3, pady=10)
-        autocompletar_button = tk.Button(button_frame, text="Autocompletar", command=buscar_facturas_numeradas); autocompletar_button.pack(side='left', padx=5)
+        # Eliminado: botón "Autocompletar" (demo)
         iniciar_button = tk.Button(button_frame, text="Iniciar Proceso", command=iniciar_proceso_wrapper, state='disabled'); iniciar_button.pack(side='left', padx=5)
         detener_button = tk.Button(button_frame, text="Detener Proceso", command=solicitar_parada_proceso, state='disabled'); detener_button.pack(side='left', padx=5)
 
