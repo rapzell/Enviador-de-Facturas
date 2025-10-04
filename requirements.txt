@@ -1,0 +1,9 @@
+pytesseract
+Pillow
+python-dotenv
+opencv-python
+numpy
+easyocr
+pdf2image
+pandas
+openpyxl

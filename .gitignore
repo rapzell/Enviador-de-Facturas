@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+logs/
+facturas/
+*.pdf
+*.xlsx
+*.xls
+src/gui/build/
+build/
+dist/
+*.spec
